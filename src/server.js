@@ -189,7 +189,7 @@ app.post('/api/create-payment', async (req, res) => {
     const { amount, customerData, cartData, orderId, returnUrl } = req.body;
 
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['ideal'],
+      payment_method_types: ['card', 'ideal'],
       line_items: [{
         price_data: {
           currency: 'eur',
